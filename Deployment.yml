@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: akhilmanoj
+spec:
+   replicas: 2
+   selector:      # tells the controller which pods to watch/belong to
+    matchLabels:
+     app: akhilmanoj
+   template:
+      metadata:
+        labels:
+          app: akhilmanoj
+      spec:
+       containers:
+        - name: akhilmanoj
+          image: akhilm13/pipeline-demo
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
